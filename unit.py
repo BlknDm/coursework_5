@@ -23,19 +23,19 @@ class BaseUnit(ABC):
         self._is_skill_used = False
 
     @property
-    def health_points(self):
+    def health_points(self) -> float:
         return round(self.hp, 1)
 
     @property
-    def stamina_points(self):
+    def stamina_points(self) -> float:
         return round(self.stamina, 1)
 
-    def equip_weapon(self, weapon: Weapon):
+    def equip_weapon(self, weapon: Weapon) -> str:
         # TODO присваиваем нашему герою новое оружие
         self.weapon = weapon
         return f"{self.name} экипирован оружием {self.weapon.name}"
 
-    def equip_armor(self, armor: Armor):
+    def equip_armor(self, armor: Armor) -> str:
         # TODO одеваем новую броню
         self.armor = armor
         return f"{self.name} экипирован броней {self.armor.name}"

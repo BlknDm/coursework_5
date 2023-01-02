@@ -1,5 +1,6 @@
 from __future__ import annotations
 from abc import ABC, abstractmethod
+from typing import Optional
 
 
 class Skill(ABC):
@@ -29,7 +30,7 @@ class Skill(ABC):
     def skill_effect(self) -> str:
         pass
 
-    def _is_stamina_enough(self):
+    def _is_stamina_enough(self) -> bool:
         return self.user.stamina > self.stamina
 
     def use(self, user, target) -> str:
@@ -49,7 +50,7 @@ class FuryPunch(Skill):
     stamina = 6
     damage = 12
 
-    def skill_effect(self):
+    def skill_effect(self) -> str:
         self.user.stamina -= self.stamina
         self.target.hp -= self.damage
 
@@ -61,7 +62,7 @@ class HardShot(Skill):
     stamina = 5
     damage = 15
 
-    def skill_effect(self):
+    def skill_effect(self) -> str:
         self.user.stamina -= self.stamina
         self.target.hp -= self.damage
 
